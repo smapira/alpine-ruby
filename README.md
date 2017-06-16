@@ -1,4 +1,4 @@
-# `alpine-ruby-sourcecompile`: Minimal Ruby image (<sup><sup>virtual 548 MB</sup></sup>)
+# `alpine-ruby-sourcecompile`: Minimal Ruby image <sup>(virtual 548 MB)</sup>
 
 This is a *VERY* small mri ruby 2.4.1 image by source compile, based on the [Alpine edge](https://hub.docker.com/_/alpine/) image.
 
