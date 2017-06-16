@@ -24,4 +24,3 @@ To run `irb`:
 ## Super Thanks
 - [cybercode/alpine-ruby: Dockefile to create very small ruby base image](https://github.com/cybercode/alpine-ruby)
 - [alpineベースでrubyをdocker buildしてみた - Qiita](http://qiita.com/tknzk/items/ee9b4ca664c8f3bce042)
-
