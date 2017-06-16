@@ -1,5 +1,10 @@
-DUMMY: build
-VERSION:=2.3
+VERSION = 1.0.0-1
+IMAGE = smapira/alpine-ruby-no-package:$(VERSION)
 
-build:
-	docker build -t cybercode/alpine-ruby:$(VERSION) $(ARGS) .
+all:
+
+image:
+	docker build -t $(IMAGE) --no-cache .
+
+publish:
+	docker push $(IMAGE)

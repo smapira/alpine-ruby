@@ -1,36 +1,27 @@
-# `alpine-ruby`: Minimal Ruby image
+# `alpine-ruby-sourcecompile`: Minimal Ruby image (<sup><sup>virtual 548 MB</sup></sup>)
 
-This is a *VERY* small mri ruby 2.2.3 image. It uses the [Alpine Linux](https://www.alpinelinux.org) ruby packages, and has `bundler` and minimal ruby packages installed.
+This is a *VERY* small mri ruby 2.4.1 image by source compile, based on the [Alpine edge](https://hub.docker.com/_/alpine/) image.
 
-## Using this package
- 
-``` Dockerfile
-FROM cybercode/alpine-ruby:2.3
-CMD["/mycommand"]
-```
+## Install
 
-Unlike the [Official Ruby Image](https://hub.docker.com/_/ruby/) or [tinycore-ruby](https://hub.docker.com/r/tatsushid/tinycore-ruby/), it does not create any users or do `ONBUILD` magic and the `CMD` defaults to `irb`.
+As a prerequisite, you need [Docker](https://docker.com) to be installed.
 
-### Using C-based gems
+To download this image from the public docker hub:
 
-This image does not contain a compiler, etc. The best way to install C-based gems is to install the compiler chain and any development libraries required, run bundle install and remove the libraries all in one `RUN` command. That way the the final image will stay small.
+	$ docker pull smapira/alpine-ruby-sourcecompile
 
-For example,  if you are using the `pg` and `nokogiri` gems:
+To re-build this image from the dockerfile:
 
-``` Dockerfile
-RUN apk --update add --virtual build_deps \
-    build-base ruby-dev libc-dev linux-headers \
-    openssl-dev postgresql-dev libxml2-dev libxslt-dev && \
-    sudo -iu app bundle install --path vendor/bundle && \
-    apk del  build_deps
-```
+	$ docker build -t alpine-ruby-sourcecompile .
 
-**Note**: These instructions used to suggest
+## Usage
 
-``` Dockerfile
-sudo -iu app bundle config build.nokogiri --use-system-libraries 
-```
+To run `irb`:
 
-before the bundle install. 
+	$ docker run -t smapira/alpine-ruby-sourcecompile
 
-This fails w/ alpine 3.4 as there is a conflict with the system header files.
+
+## Super Thanks
+- [cybercode/alpine-ruby: Dockefile to create very small ruby base image](https://github.com/cybercode/alpine-ruby)
+- [alpineベースでrubyをdocker buildしてみた - Qiita](http://qiita.com/tknzk/items/ee9b4ca664c8f3bce042)
+
