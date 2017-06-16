@@ -1,6 +1,5 @@
 FROM alpine:edge
-
-MAINTAINER <smapira@routeflags.com>
+LABEL maintainer "smapira@routeflags.com"
 
 # Update Alpine environment
 RUN apk add --update --no-cache g++ make build-base ruby-dev libc-dev linux-headers openssl-dev libxml2-dev libxslt-dev ca-certificates
