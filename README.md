@@ -2,6 +2,9 @@
 
 This is a *VERY* small mri ruby 2.4.1 image by source compile, based on the [Alpine edge](https://hub.docker.com/_/alpine/) image.
 
+## Officially ruby image
+[docker-library/ruby](https://github.com/docker-library/ruby)
+
 ## Install
 
 As a prerequisite, you need [Docker](https://docker.com) to be installed.
